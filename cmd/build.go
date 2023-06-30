@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
-	"github.com/thedevsaddam/docgen/collection"
+	"github.com/fuzengjie/docgen/collection"
 )
 
 var (

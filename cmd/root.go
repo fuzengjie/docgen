@@ -10,8 +10,8 @@ import (
 	"text/template"
 
 	"github.com/spf13/cobra"
-	"github.com/thedevsaddam/docgen/collection"
-	"github.com/thedevsaddam/docgen/update"
+	"github.com/fuzengjie/docgen/collection"
+	"github.com/fuzengjie/docgen/update"
 )
 
 const logo = `
