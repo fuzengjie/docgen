@@ -1,0 +1,12 @@
+*.DS_Store
+*.pdf
+docgen
+vendor
+.idea
+bin/linux_386
+bin/linux_amd64
+bin/linux_arm64
+bin/darwin_amd64
+bin/darwin_arm64
+bin/windows_386.exe
+bin/windows_amd64.exe
