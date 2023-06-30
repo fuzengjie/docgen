@@ -13,6 +13,7 @@ import (
 
 var (
 	file      string
+	addr      string
 	port      int
 	serveLive = &cobra.Command{
 		Use:   "server",
@@ -24,6 +25,7 @@ var (
 
 func init() {
 	serveLive.PersistentFlags().IntVarP(&port, "port", "p", 9000, "port number to listen")
+	serveLive.PersistentFlags().StringVarP(&addr, "addr", "i", "localhost", "addr to listen")
 	serveLive.PersistentFlags().StringVarP(&file, "file", "f", "", "postman collection path")
 	serveLive.PersistentFlags().BoolVarP(&isMarkdown, "md", "m", false, "display markdown format in preview")
 	serveLive.PersistentFlags().BoolVarP(&includeVariable, "var", "v", false, "this flag will include variables in template")
@@ -43,8 +45,8 @@ func server(cmd *cobra.Command, args []string) {
 	}
 	http.HandleFunc("/", templateFunc)
 	log.Println("Listening on port: ", port)
-	log.Printf("Web Server is available at http://localhost:%s/\n", strconv.Itoa(port))
-	if err := http.ListenAndServe(fmt.Sprintf(":%d", port), nil); err != nil {
+	log.Printf("Web Server is available at http://%s:%s/\n", addr,strconv.Itoa(port))
+	if err := http.ListenAndServe(fmt.Sprintf("%s:%d",addr, port), nil); err != nil {
 		handleErr("Failed to open server", err)
 	}
 }
